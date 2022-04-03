@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+
+  wordpress:
+    image: wordpress:5.9
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: wp_db # ini harus sama dengan host nya database
+      WORDPRESS_DB_USER: thebridalmate
+      WORDPRESS_DB_PASSWORD: thebridalmate_123
+      WORDPRESS_DB_NAME: thebridalmate_db
+    volumes:
+      - ./www:/var/www/html
+
+  wp_db:
+    image: mysql:5.7
+    ports: 
+      - 5500:3306
+    environment:
+      MYSQL_DATABASE: thebridalmate_db
+      MYSQL_USER: thebridalmate
+      MYSQL_PASSWORD: thebridalmate_123
+      MYSQL_ROOT_PASSWORD: thebridalmate_root_123
+    volumes:
+      - wp_db:/var/lib/mysql
+
+volumes:
+  wp_db:
