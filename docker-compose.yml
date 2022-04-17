@@ -7,10 +7,18 @@ services:
     ports:
       - 8080:80
     environment:
-      WORDPRESS_DB_HOST: wp_db # ini harus sama dengan host nya database
-      WORDPRESS_DB_USER: thebridalmate
-      WORDPRESS_DB_PASSWORD: thebridalmate_123
-      WORDPRESS_DB_NAME: thebridalmate_db
+      # local
+      # WORDPRESS_DB_HOST: wp_db # ini harus sama dengan host nya database
+      # WORDPRESS_DB_USER: thebridalmate
+      # WORDPRESS_DB_PASSWORD: thebridalmate_123
+      # WORDPRESS_DB_NAME: thebridalmate_db
+
+      # online stage
+      WORDPRESS_DB_HOST: 103.55.39.44 # ini harus sama dengan host nya database
+      WORDPRESS_DB_USER: thebrida_stage_1
+      WORDPRESS_DB_PASSWORD: thebrida_stage_1
+      WORDPRESS_DB_NAME: thebrida_stage
+     
     volumes:
       - ./www:/var/www/html
 
@@ -28,3 +36,4 @@ services:
 
 volumes:
   wp_db:
+    
